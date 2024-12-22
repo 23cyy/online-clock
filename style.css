@@ -1,0 +1,213 @@
+/* Style horloge */
+:root {
+    --bg-primary: #f4f4f6;
+    --bg-secondary: #ffffff;
+    --text-primary: #2c3e50;
+    --accent-color: #3498db;
+    --shadow-subtle: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--bg-primary);
+    gap: 2rem;
+    padding: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.clock {
+    width: 300px;
+    height: 300px;
+    background-color: var(--bg-secondary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: var(--shadow-subtle);
+    transition: transform 0.3s ease;
+}
+
+.clock:hover {
+    transform: scale(1.02);
+}
+
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    border-radius: 10px;
+}
+
+#hour {
+    width: 6px;
+    height: 100px;
+    margin-left: -3px;
+    background-color: var(--text-primary);
+}
+
+#minute {
+    width: 4px;
+    height: 140px;
+    margin-left: -2px;
+    background-color: var(--accent-color);
+}
+
+#second {
+    width: 2px;
+    height: 160px;
+    margin-left: -1px;
+    background-color: #e74c3c;
+}
+
+.markers {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.marker {
+    position: absolute;
+    width: 2px;
+    height: 15px;
+    background-color: var(--text-primary);
+    left: 50%;
+    top: 0;
+    transform-origin: 0 150px;
+    opacity: 0.5;
+}
+
+.marker:nth-child(5n) {
+    height: 25px;
+    opacity: 1;
+}
+
+.center-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: var(--text-primary);
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.digital-clock {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-subtle);
+    display: none;
+}
+
+.flip-clock {
+    display: none;
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-subtle);
+    display: flex;
+    gap: 1.5rem;
+}
+
+.flip-digit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 60px;
+    height: 90px;
+    perspective: 600px;
+}
+
+.flip-digit-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-radius: 6px;
+    line-height: 90px;
+    text-align: center;
+    box-shadow: var(--shadow-subtle);
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+}
+
+.flip-digit-top, .flip-digit-bottom {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-digit-top {
+    top: 0;
+    transform-origin: bottom;
+}
+
+.flip-digit-bottom {
+    bottom: 0;
+    transform-origin: top;
+}
+
+.flip-animation {
+    animation: flip 0.6s ease-in-out;
+}
+
+@keyframes flip {
+    0% {
+        transform: rotateX(0deg);
+    }
+    50% {
+        transform: rotateX(-90deg);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+
+.toggle-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.toggle-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background-color: #2980b9;
+}

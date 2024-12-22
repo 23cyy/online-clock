@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Horloge en ligne</title>
+</head>
+<body>
+    <div class="clock-container">
+        <div class="clock">
+            <div class="markers"></div>
+            <div id="hour" class="hand"></div>
+            <div id="minute" class="hand"></div>
+            <div id="second" class="hand"></div>
+            <div class="center-dot"></div>
+        </div>
+        <div class="digital-clock" id="digitalClock"></div>
+        <div class="flip-clock" id="flipClock">
+            <div class="flip-digit" id="hoursFlip">
+                <div class="flip-digit-inner"></div>
+            </div>
+            <div class="flip-digit" id="minutesFlip">
+                <div class="flip-digit-inner"></div>
+            </div>
+            <div class="flip-digit" id="secondsFlip">
+                <div class="flip-digit-inner"></div>
+            </div>
+        </div>
+    </div>
+    <div class="toggle-buttons">
+        <button class="toggle-btn" onclick="switchClockMode()">Mode numérique</button>
+        <button class="toggle-btn" onclick="switchThemeMode()">Mode sombre</button>
+        <button class="toggle-btn" onclick="showFlipClock()">Horloge style Flip</button>
+        <button class="toggle-btn" onclick="goToAlarmPage()">Programmer une alarme</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
